@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.winrule.dao.WinruleDao">
+    
+	<sql id="winruleColumns">
+		a.id AS "id",
+		a.backimage AS "backimage",
+		a.pointimage AS "pointimage"
+	</sql>
+	
+	<sql id="winruleJoins">
+	</sql>
+    
+	<select id="get" resultType="Winrule">
+		SELECT 
+			<include refid="winruleColumns"/>
+		FROM winrule a
+		<include refid="winruleJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="Winrule">
+		SELECT 
+			<include refid="winruleColumns"/>
+		FROM winrule a
+		<include refid="winruleJoins"/>
+		<where>
+			
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Winrule">
+		SELECT 
+			<include refid="winruleColumns"/>
+		FROM winrule a
+		<include refid="winruleJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO winrule(
+			backimage,
+			pointimage
+		) VALUES (
+			#{backimage},
+			#{pointimage}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE winrule SET 	
+			backimage = #{backimage},
+			pointimage = #{pointimage}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM winrule
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

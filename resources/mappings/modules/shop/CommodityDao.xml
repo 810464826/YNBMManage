@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.shop.dao.CommodityDao">
+    
+	<sql id="commodityColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.boxtitle0 AS "boxtitle0",
+		a.boxtitle1 AS "boxtitle1",
+		a.boxtitle2 AS "boxtitle2",
+		a.originalprice0 AS "originalprice0",
+		a.originalprice1 AS "originalprice1",
+		a.originalprice2 AS "originalprice2",
+		a.buylimit0 AS "buylimit0",
+		a.buylimit1 AS "buylimit1",
+		a.buylimit2 AS "buylimit2",
+		a.member0 AS "member0",
+		a.member1 AS "member1",
+		a.member2 AS "member2",
+		a.discount AS "discount",
+		a.description AS "description",
+		a.picture AS "picture",
+		a.subpicture1 AS "subpicture1",
+		a.subpicture2 AS "subpicture2",
+		a.subpicture3 AS "subpicture3",
+		a.subpicture4 AS "subpicture4",
+		a.providerintroduce AS "providerintroduce",
+		a.create_time AS "createTime",
+		a.update_time AS "updateTime",
+		a.shelves AS "shelves",
+		a.newtype AS "newtype",
+		a.buyer AS "buyer",
+		a.category AS "category",
+		a.sales AS "sales",
+		a.popularity AS "popularity",
+		a.shopId AS "shopId"
+	</sql>
+	
+	<sql id="commodityJoins">
+	</sql>
+    
+	<select id="get" resultType="Commodity">
+		SELECT 
+			<include refid="commodityColumns"/>
+		FROM commodity a
+		<include refid="commodityJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="Commodity">
+		SELECT 
+			<include refid="commodityColumns"/>
+		FROM commodity a
+		<include refid="commodityJoins"/>
+		<where>
+			
+			<if test="name != null and name != ''">
+				AND a.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+			<if test="boxtitle0 != null and boxtitle0 != ''">
+				AND a.boxtitle0 = #{boxtitle0}
+			</if>
+			<if test="originalprice0 != null and originalprice0 != ''">
+				AND a.originalprice0 = #{originalprice0}
+			</if>
+			<if test="member0 != null and member0 != ''">
+				AND a.member0 = #{member0}
+			</if>
+			<if test="createTime != null and createTime != ''">
+				AND a.create_time LIKE concat(date_format(#{createTime},'%Y-%m-%d'),'%')
+			</if>
+			<if test="shelves != null and shelves != ''">
+				AND a.shelves = #{shelves}
+			</if>
+			<if test="newtype != null and newtype != ''">
+				AND a.newtype = #{newtype}
+			</if>
+			<if test="buyer != null and buyer != ''">
+				AND a.buyer = #{buyer}
+			</if>
+			
+			<if test="category != null">
+				
+				a.category IN (SELECT b.id FROM test_tree b WHERE b.parent_id = #{category} OR b.id = #{category})
+			</if>
+			<if test="shopId != null and shopId != ''">
+				AND a.shopId LIKE 
+					<if test="dbName == 'oracle'">'%'||#{shopId}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{shopId}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{shopId},'%')</if>
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Commodity">
+		SELECT 
+			<include refid="commodityColumns"/>
+		FROM commodity a
+		<include refid="commodityJoins"/>
+		<where>
+			<if test="shelves != null">
+				AND a.shelves != #{shelves}
+			</if>
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findTypeGoodsList" resultType="Commodity">
+		SELECT 
+			<include refid="commodityColumns"/>
+		FROM commodity a
+		<include refid="commodityJoins"/>
+		WHERE a.shelves != 0 AND a.category = #{id}
+	</select>
+	
+	
+	<insert id="insert">
+		INSERT INTO commodity(
+			name,
+			boxtitle0,
+			boxtitle1,
+			boxtitle2,
+			originalprice0,
+			originalprice1,
+			originalprice2,
+			buylimit0,
+			buylimit1,
+			buylimit2,
+			member0,
+			member1,
+			member2,
+			discount,
+			description,
+			picture,
+			subpicture1,
+			subpicture2,
+			subpicture3,
+			subpicture4,
+			providerintroduce,
+			create_time,
+			update_time,
+			shelves,
+			newtype,
+			buyer,
+			category,
+			sales,
+			popularity,
+			shopId
+		) VALUES (
+			#{name},
+			#{boxtitle0},
+			#{boxtitle1},
+			#{boxtitle2},
+			#{originalprice0},
+			#{originalprice1},
+			#{originalprice2},
+			#{buylimit0},
+			#{buylimit1},
+			#{buylimit2},
+			#{member0},
+			#{member1},
+			#{member2},
+			#{discount},
+			#{description},
+			#{picture},
+			#{subpicture1},
+			#{subpicture2},
+			#{subpicture3},
+			#{subpicture4},
+			#{providerintroduce},
+			#{createTime},
+			#{updateTime},
+			#{shelves},
+			#{newtype},
+			#{buyer},
+			#{category},
+			#{sales},
+			#{popularity},
+			#{shopId}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE commodity SET 	
+			name = #{name},
+			boxtitle0 = #{boxtitle0},
+			boxtitle1 = #{boxtitle1},
+			boxtitle2 = #{boxtitle2},
+			originalprice0 = #{originalprice0},
+			originalprice1 = #{originalprice1},
+			originalprice2 = #{originalprice2},
+			buylimit0 = #{buylimit0},
+			buylimit1 = #{buylimit1},
+			buylimit2 = #{buylimit2},
+			member0 = #{member0},
+			member1 = #{member1},
+			member2 = #{member2},
+			discount = #{discount},
+			description = #{description},
+			picture = #{picture},
+			subpicture1 = #{subpicture1},
+			subpicture2 = #{subpicture2},
+			subpicture3 = #{subpicture3},
+			subpicture4 = #{subpicture4},
+			providerintroduce = #{providerintroduce},
+			create_time = #{createTime},
+			update_time = #{updateTime},
+			shelves = #{shelves},
+			newtype = #{newtype},
+			buyer = #{buyer},
+			category = #{category},
+			sales = #{sales},
+			popularity = #{popularity},
+			shopId = #{shopId}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM commodity
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

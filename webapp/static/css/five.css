@@ -1,0 +1,66 @@
+.font-mar>div{
+    float: left;
+}
+.secImg{
+    width: 401px;
+    height: 161px;
+    text-align: center;
+    display: table;
+}
+.secImg .secImg-mid{
+    display: table-cell;
+    vertical-align: middle;
+}
+.bgImg1{
+    background: url("../img/helpCenter/shougong.png") no-repeat;
+}
+.bgImg2{
+    clear: both;
+    background: url("../img/helpCenter/chandi.png") no-repeat;
+}
+.bgImg3{
+    clear: both;
+    background: url("../img/helpCenter/ziyou.png") no-repeat;
+}
+.bgImg4{
+    clear: both;
+    background: url("../img/helpCenter/shichang.png") no-repeat;
+}
+.bgImg5{
+    clear: both;
+    background: url("../img/helpCenter/shishang.png") no-repeat;
+}
+.secImg p{
+    color: #FFFFFF;
+}
+.secImg .font-secImg22{
+    font-size: 22px;
+    letter-spacing: 8px;
+}
+.secImg .font-secImg16{
+    font-size: 16px;
+    letter-spacing: 5px;
+}
+.secImg .font-sec-Img16{
+    font-size: 16px;
+}
+.secFont{
+    margin-left: 40px;
+    margin-bottom: 40px;
+}
+.secFont .secFont-font14{
+    font-size: 14px;
+    color: #444;
+}
+.secFont-mar{
+    margin-top: 5px;
+}
+.secFont .secFont-font12{
+    line-height: 20px;
+}
+.secFont-jl{
+    margin-top: 12px;
+}
+.secFont-bjl{
+    margin-bottom: 100px;
+}

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.userbanks.dao.BanksDao">
+    
+	<sql id="banksColumns">
+		a.id AS "id",
+		a.userid AS "userid",
+		a.bankname AS "bankname",
+		a.banknum AS "banknum",
+		a.username AS "username",
+		a.phone AS "phone",
+		a.create_time AS "createTime"
+	</sql>
+	
+	<sql id="banksJoins">
+	
+	</sql>
+    
+	<select id="get" resultType="Banks">
+		SELECT 
+			<include refid="banksColumns"/>
+		FROM banks a
+		<include refid="banksJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="Banks">
+		SELECT 
+			a.id AS "id",
+			b.name AS "userid",
+			a.bankname AS "bankname",
+			a.banknum AS "banknum",
+			a.username AS "username",
+			a.phone AS "phone",
+			a.create_time AS "createTime"
+		FROM banks a LEFT JOIN member b ON b.id = a.userid 
+		<include refid="banksJoins"/>
+		<where>
+			
+			<if test="userid != null and userid != ''">
+				AND b.name = #{userid}
+			</if>
+			<if test="bankname != null and bankname != ''">
+				AND a.bankname = #{bankname}
+			</if>
+			<if test="banknum != null and banknum != ''">
+				AND a.banknum = #{banknum}
+			</if>
+			<if test="username != null and username != ''">
+				AND a.username = #{username}
+			</if>
+			<if test="phone != null and phone != ''">
+				AND a.phone = #{phone}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Banks">
+		SELECT 
+			<include refid="banksColumns"/>
+		FROM banks a
+		<include refid="banksJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO banks(
+			userid,
+			bankname,
+			banknum,
+			username,
+			phone,
+			create_time
+		) VALUES (
+			#{userid},
+			#{bankname},
+			#{banknum},
+			#{username},
+			#{phone},
+			#{createTime}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE banks SET 	
+			userid = #{userid},
+			bankname = #{bankname},
+			banknum = #{banknum},
+			username = #{username},
+			phone = #{phone},
+			create_time = #{createTime}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM banks
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

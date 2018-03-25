@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.application.dao.ApplicationDao">
+    
+	<sql id="applicationColumns">
+		a.id AS "id",
+		a.userId AS "userId",
+		a.money AS "money",
+		a.review AS "review",
+		a.payment AS "payment",
+		a.contents1 AS "contents1",
+		a.contents2 AS "contents2",
+		a.create_time AS "createTime",
+		a.update_time AS "updateTime"
+	</sql>
+	
+	<sql id="applicationJoins">
+	</sql>
+    
+	<select id="get" resultType="Application">
+		SELECT 
+			<include refid="applicationColumns"/>
+		,a.account AS "account",
+		a.username AS "username",
+		a.phone AS "phone",
+		a.bank AS "bank"
+		FROM application a
+		<include refid="applicationJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<sql id="addLeft">
+		LEFT JOIN member b ON b.id = a.userId
+	</sql>
+	
+	<select id="getUserById" resultType="Member">
+		SELECT 
+			a.id AS "id",
+			a.name AS "name",
+			a.commission AS "commission"
+		FROM member a
+		<include refid="applicationJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="Application">
+		SELECT 
+			a.id AS "id",
+			a.userId AS "userId",
+			a.money AS "money",
+			a.review AS "review",
+			a.payment AS "payment",
+			a.contents1 AS "contents1",
+			a.contents2 AS "contents2",
+			a.create_time AS "createTime",
+			a.update_time AS "updateTime",
+			a.account AS "account",
+			a.username AS "username",
+			a.phone AS "phone",
+			a.bank AS "bank" 
+		FROM application a
+		<include refid="addLeft"/>
+		<where>
+			<if test="account != null and account != ''">
+				AND a.account = #{account}
+			</if>
+			<if test="phone != null and phone != ''">
+				AND a.phone = #{phone}
+			</if>
+			<if test="username != null and username != ''">
+				AND a.username = #{username}
+			</if>
+			<if test="review != null and review != ''">
+				AND a.review = #{review}
+			</if>
+			<if test="payment != null and payment != ''">
+				AND a.payment = #{payment}
+			</if>
+			<if test="createTime != null and createTime != ''">
+				AND a.create_time &gt;= #{createTime} AND a.create_time &lt;= #{updateTime}  
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Application">
+		SELECT 
+			<include refid="applicationColumns"/>
+		FROM application a
+		<include refid="applicationJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO application(
+			money,
+			review,
+			payment,
+			contents1,
+			contents2,
+			create_time,
+			update_time
+		) VALUES (
+			#{money},
+			#{review},
+			#{payment},
+			#{contents1},
+			#{contents2},
+			#{createTime},
+			#{updateTime}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE application SET 	
+			money = #{money},
+			review = #{review},
+			payment = #{payment},
+			contents1 = #{contents1},
+			contents2 = #{contents2},
+			create_time = #{createTime},
+			update_time = #{updateTime},
+			review_time = #{review_time}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM application
+		WHERE id = #{id}
+	</update>
+	
+	<update id="updateMoney">
+		UPDATE member SET 	
+			commission = #{money} 
+		WHERE id = #{id}
+	</update>
+</mapper>

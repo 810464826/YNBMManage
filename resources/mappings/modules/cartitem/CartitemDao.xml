@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.cartitem.dao.CartitemDao">
+    
+	<sql id="cartitemColumns">
+		a.id AS "id",
+		a.userid AS "userid",
+		a.commodityid AS "commodityid",
+		a.commoditytype AS "commoditytype",
+		a.status AS "status",
+		a.total AS "total",
+		a.ordernum AS "ordernum",
+		a.create_time AS "createTime",
+		a.update_time AS "updateTime"
+	</sql>
+	
+	<sql id="cartitemJoins">
+	</sql>
+    
+	<select id="get" resultType="Cartitem">
+		SELECT 
+			<include refid="cartitemColumns"/>
+		FROM cartitem a
+		<include refid="cartitemJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="Cartitem">
+		SELECT 
+			<include refid="cartitemColumns"/>
+		FROM cartitem a
+		<include refid="cartitemJoins"/>
+		<where>
+			
+			<if test="userid != null and userid != ''">
+				AND a.userid = #{userid}
+			</if>
+			<if test="commodityid != null and commodityid != ''">
+				AND a.commodityid = #{commodityid}
+			</if>
+			<if test="commoditytype != null and commoditytype != ''">
+				AND a.commoditytype = #{commoditytype}
+			</if>
+			<if test="status != null and status != ''">
+				AND a.status = #{status}
+			</if>
+			<if test="ordernum != null and ordernum != ''">
+				AND a.ordernum = #{ordernum}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Cartitem">
+		SELECT 
+			<include refid="cartitemColumns"/>
+		FROM cartitem a
+		<include refid="cartitemJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO cartitem(
+			userid,
+			commodityid,
+			commoditytype,
+			status,
+			total,
+			ordernum,
+			create_time,
+			update_time
+		) VALUES (
+			#{userid},
+			#{commodityid},
+			#{commoditytype},
+			#{status},
+			#{total},
+			#{ordernum},
+			#{createTime},
+			#{updateTime}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE cartitem SET 	
+			userid = #{userid},
+			commodityid = #{commodityid},
+			commoditytype = #{commoditytype},
+			status = #{status},
+			total = #{total},
+			ordernum = #{ordernum},
+			create_time = #{createTime},
+			update_time = #{updateTime}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM cartitem
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

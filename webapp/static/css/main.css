@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ margin:0 auto; padding:0; border:0;}
+body{ font-size:12px; line-height:36px;font-family: "微软雅黑";}
+a{ text-decoration:none;}
+h2{ font-size:24px; line-height:40px;}
+ul li{ float:left; list-style:none;}
+h2{ font-weight:100;}
+h3{ display:inline; font-size:32px; color:#c00; padding-left:2px;}
+h6{ display:inline; font-size:8px; color:#555;}
+.hidden{display: none;}
+.box.hidden{display: none;}
+header{width:1440px;}
+.header{width:1440px;}
+.logo{width:300px;float: left;}
+.logo img{height: 30px;margin-top: 10px;margin-left: 110px;}
+.operate{float: right;text-align: center;padding-top:15px;margin-right:130px;}
+
+.mt30{margin-top:30px;}
+.fl{float:left;}
+.fr{float:right;}
+button:focus{outline:none;}
+button{cursor:pointer;}
+input:focus{outline:none;outline-offset:0;}
+ol li{list-style:none;}
+
+.alipay{background:url("../img_new/pay_alipayIcon.png") no-repeat;}
+.weixin{background:url("../img_new/pay_weixinIcon.png") no-repeat;}
+.chinaBank{background:url("../img/bank_3.png") no-repeat;}
+.chinaGS{background:url("../img/bank_1.png") no-repeat;}
+.chinaNY{background:url("../img/bank_2.png") no-repeat;}
+.chinaJS{background:url("../img/bank_4.png") no-repeat;}
+.ZSBank{background:url("../img/bank_5.png") no-repeat;}
+.JTBank{background:url("../img/bank_8.png") no-repeat;}
+.chinaYZ{background:url("../img/bank_9.png") no-repeat;}
+.XYBank{background:url("../img/bank_14.png") no-repeat;}
+.chinaMS{background:url("../img/bank_11.png") no-repeat;}
+.BJBank{background:url("../img/bank_18.png") no-repeat;}
+.GFBank{background:url("../img/bank_7.png") no-repeat;}
+.PABank{background:url("../img/bank_17.png") no-repeat;}
+

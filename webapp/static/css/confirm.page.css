@@ -1,0 +1,92 @@
+.header{height:50px;border-bottom: 1px solid #e3e3e3}
+.cart_content{background: #f6f6f6;clear:both; text-align:center;width: 1000px;color:#707070;}		      
+.cart_step{ font-size:16px; list-style-type:circle;list-style:none;padding-top: 15px;}
+.cart_step > .active{color:#ff712f;}
+.cart_step li{color:#d2d2d2;}
+.cart_step .list-1{margin-left:315px;margin-bottom:10px;}
+.cart_step .list-2{margin-left:90px;}
+.cart_step .list-3{margin-left:80px;}
+.cart_content .bg-color{background-color:#FF712F;}
+
+.address-list{margin-top: 15px;margin-bottom: 15px;height: 160px;}
+.address{
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;float: left;margin:15px 0px 15px 40px;width: 280px;height: 160px;border: 1px solid #d2d2d2;text-align: left;}
+.cart_content.active{border: 2px solid #ff712f}
+.address div{margin-left: 20px; margin-top: 10px;padding: 0px;height: 12px;color: #707070}
+.select-address{float: right;margin-top: 23px;margin-right: 20px;display: none;}
+.active .select-address{display: block;}
+
+.add-address{float: left;margin:15px 0px 15px 40px;border: 1px solid #d2d2d2;text-align: center;width: 280px;height: 160px;}
+.bor-ys{ border:2px solid #FF712F; }
+.delivery, .delivery-time{
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;width: 280px;height: 54px;margin-left: 40px;margin-top: 30px;border: 1px solid #d2d2d2;}
+.delivery-time{float: left;}
+.delivery.active,.delivery-time.active,.address.active{border-color:#FF712F;
+    -webkit-box-shadow: 0 0 0 1px #ff712f;
+    -moz-box-shadow: 0 0 0 1px #ff712f;
+    box-shadow: 0 0 0 1px #ff712f;}
+
+.cart-thead{color:#444444;font-size:14px;height:40px;border-bottom: 1px solid #d2d2d2;}
+.cart-head-column {width: 122px; padding-left: 11px; float: left;}
+.cart-column {height: 105px; line-height: 100px; padding-top: 20px; width: 122px; padding-left: 11px; float: left;border-bottom: solid 1px #d2d2d2;}
+
+.p-img{float: left;width: 80px;height:80px;  border:1px solid #eee; margin: 0 10px;background: #fff;padding:0;text-align: center; overflow: hidden;}
+.item-msg{color:#707070;font-size:12px;text-align: left;height:80px;line-height:80px;}
+
+/*=====================================================支锟斤拷锟剿讹拷==========================================================*/
+.areaTitle{  width: 970px;text-align: left;padding-left: 30px;font-size: 16px;height: 45px;line-height: 45px; border-bottom:1px solid #d2d2d2}
+.colName{text-align:right;color:#444444}
+.colValue{text-align:left;color:#707070}
+
+.payWaytitle{line-height: 40px;  height: 40px; border-style: solid;  font-size: 14px;}
+.payWaytitle li{float: left;position: relative;height: 36px;line-height: 40px;bottom: -1px;  padding-left: 2px;  margin-right: 3px;  font-size: 14px;}
+.payWaytitle li a{  display: inline-block;}
+.payWaytitle li.current a {background: url(../img_new/ico_tab.png) no-repeat right top;color: #444444; }
+.payWaytitle li.other a {background: url(../img_new/ico_tab.png) no-repeat right top;color: #707070;}
+
+/******* me ********/
+.circle{width:640px;background-color:#FF712F;height:1px;margin:0 auto;clear:both;position:relative;}
+.circle li{width:8px;height:8px;border:1px solid #FF712F;
+    position:absolute;background-color:#FFF;top:-5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;}
+.circle1{left:155px;}
+.circle2{left:315px;}
+.circle3{left:475px;}
+.payState{width:100%;}
+.payState:after{display:block;content:"";clear:both;}
+
+#invoicedesc{
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;padding:0 12px;margin-top:8px;width:300px;height:40px;border:1px solid #D2D2D2;margin-left:10px;font-size:12px;}
+/******* 鍗曢�鎸夐挳鏍峰紡 ********/
+.radioBox .uncheck,.radioBox .check{width:11px;height:11px;border:1px solid #D2D2D2;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;}
+.radioBox{display:inline-block;width:50px;height:12px;position:relative;vertical-align:middle;margin-top:-1px;}
+.radioBox input,label{position:absolute;}
+.radioBox input{opacity:0;}
+.radioBox .label{left:17px;top:-1px;}
+.radioBox .check{
+    border-color:#2591ff;
+    -webkit-box-shadow: 0 0 0 3px #2591ff  inset;
+    -moz-box-shadow: 0 0 0 3px #2591ff inset;
+    box-shadow: 0 0 0 3px #2591ff  inset;
+}
+
+
+
+
+
+
+
+
+
+

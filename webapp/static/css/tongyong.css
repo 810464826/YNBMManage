@@ -1,0 +1,198 @@
+*{  margin:0px;
+    padding: 0px;
+}
+body{
+    font-family: 微软雅黑;
+}
+a{
+    text-decoration:none;
+}
+li{
+    list-style-type: none;
+}
+/***********通用部分结束**************/
+.header{
+    width: 1440px;
+    height:50px;
+    border-bottom: 1px solid #D2D2D2;
+}
+.header img{
+    padding-top: 11px;
+    padding-left:120px;
+}
+#nav{
+    margin-left:200px;
+    margin-top: 60px;
+    position: relative;
+    float: left;
+}
+#nav a{
+    cursor:pointer;
+}
+#nav>li{
+    margin-bottom:24px ;
+}
+.nav-nav>li>a{
+    font-size: 14px;
+    color: #444444;
+}
+.nav-bg{
+    margin-left: 18px;
+    width: 10px;
+    height: 6px;
+    margin-top: 9px;
+    float:right;
+    background:url(../img/helpCenter/xiala.png) no-repeat;
+}
+.nav-bg1{
+    margin-left: 18px;
+    width: 10px;
+    height: 6px;
+    margin-top: 9px;
+    float:right;
+    background:url(../img/helpCenter/shangla.png) no-repeat;
+}
+.nav{
+	display:none;
+}
+.nav li a{
+    font-size: 12px;
+    color: #707070;
+}
+.nav li{
+	position:relative;
+    margin-top: 16px;
+    text-align:right;
+    left:-29px;
+}
+.bg{background: url(../img/helpCenter/shangla.png) no-repeat;}
+
+.bg-bx{background: url(../img/helpCenter/xiala.png) no-repeat;}
+
+/***********Logo+导航栏部分结束**************/
+.section{
+    float: left;
+    margin-top: 50px;
+    margin-left: 60px;;
+    width: 895px;
+}
+.section p{
+    color: #707070;
+    font-size: 12px;
+    line-height: 26px;
+    opacity: 1;
+}
+.font{
+    width: 895px;
+    height: 50px;
+    font-size: 22px;
+    vertical-align: top;
+    border-bottom: 1px solid #D2D2D2;
+}
+.section .font-mar{
+    color: #707070;
+    margin-top: 17px;
+}
+.section .font-color{
+    color: #2C2C2C;
+}
+.section .line{
+    margin-top: 48px;
+}
+p img{
+    margin-bottom: -3px;
+}
+.font-bold{
+    font-weight: bold;
+}
+.font-jl{
+    margin-bottom:30px;
+}
+.font-bjl{
+    margin-bottom:100px;
+}
+.zhidin{
+    position: fixed;
+    left: 1350px;
+    top: 475px;
+    z-index: 999;
+}
+/***********主体部分结束**************/
+#foot-one{
+    width: 1440px;
+    height: 162px;
+    position: relative;
+    border-top: 1px solid #D2D2D2;
+    clear: both;
+}
+#foot-one table{
+    width: 1440px;
+    margin: 23px auto;
+    text-align: center;
+    position: relative;
+}
+table td{
+    border-right: 1px solid #D2D2D2;
+    width:480px ;
+    height: 102px;
+}
+.service{
+    font-size: 12px;
+    color: #444;
+    margin-bottom: 20px;
+}
+.number{
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+#foot-one #tab{
+    padding: 0px 78px;
+    text-align: left;
+    width: 324px;
+    vertical-align: top;
+}
+.tab-one{
+    color: #444;
+    font-size: 12px;
+    margin-bottom:18px;
+    text-align: center;
+}
+.tab-two{
+    font-size: 12px;
+    color: #707070;
+    line-height:18px;
+}
+.ceall{
+    border: none;
+}
+.ceall p{
+    font-size: 12px;
+    color: #444;
+}
+.ceall>img{
+    margin: 5px auto;
+}
+#foot-two{
+    text-align: center;
+    width:1440px;
+    height: 60px;
+    line-height: 16px;
+    background-image:url("../img/helpCenter/foot.png");
+}
+#foot-two a{
+    margin-left:24px;
+    color: #FFFFFF;
+    font-size:12px;
+}
+.fd-one{
+    padding-top: 10px;
+}
+#foot-two .fd-two{
+    color: #FFFFFF;
+    font-size: 10px;
+    margin-top: 6px;
+}
+.fd-ad{
+    margin: 0px 20px;
+}
+/***********地址部分结束**************/

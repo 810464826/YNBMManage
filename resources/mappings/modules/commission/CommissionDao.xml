@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.commission.dao.CommissionDao">
+    
+	<sql id="commissionColumns">
+		a.id AS "id",
+		a.userid AS "userid",
+		a.ordernum AS "ordernum",
+		a.order_userid AS "orderUserid",
+		a.level AS "level",
+		a.money AS "money",
+		a.create_time AS "createTime"
+	</sql>
+	
+	<sql id="commissionJoins">
+	</sql>
+    
+	<select id="get" resultType="Commission">
+		SELECT 
+			a.id AS "id",
+			b.name AS "userid",
+			a.ordernum AS "ordernum",
+			c.name AS "orderUserid",
+			a.level AS "level",
+			a.money AS "money",
+			a.create_time AS "createTime"
+		FROM commission a 
+		<include refid="commissionJoins"/>
+		<include refid="memberTable"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<sql id="memberTable">
+		LEFT JOIN member b ON b.id = a.userid
+		LEFT JOIN member c ON c.id = a.order_userid
+	</sql>
+	
+	<select id="findList" resultType="Commission">
+		SELECT 
+			a.id AS "id",
+			b.name AS "userid",
+			a.ordernum AS "ordernum",
+			c.name AS "orderUserid",
+			a.level AS "level",
+			a.money AS "money",
+			a.create_time AS "createTime"
+		FROM commission a 
+		<include refid="commissionJoins"/>
+		<include refid="memberTable"/>
+		<where>
+			<if test="userid != null and userid != ''">
+					b.name = #{userid}
+			</if>
+			<if test="ordernum != null and ordernum != ''">
+					AND a.ordernum = #{ordernum}
+			</if>
+			<if test="orderUserid != null and orderUserid != ''">
+					AND c.name = #{orderUserid}
+			</if>
+			<if test="level != null and level != ''">
+					AND a.level = #{level}
+			</if>
+			<if test="createTime != null and createTime != ''">
+				AND a.create_time &gt;= #{createTime} AND a.create_time &lt;= #{endTime}  
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Commission">
+		SELECT 
+			<include refid="commissionColumns"/>
+		FROM commission a
+		<include refid="commissionJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO commission(
+			userid,
+			ordernum,
+			order_userid,
+			level,
+			money,
+			create_time
+		) VALUES (
+			#{userid},
+			#{ordernum},
+			#{orderUserid},
+			#{level},
+			#{money},
+			#{createTime}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE commission SET 	
+			userid = #{userid},
+			ordernum = #{ordernum},
+			order_userid = #{orderUserid},
+			level = #{level},
+			money = #{money},
+			create_time = #{createTime}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM commission
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

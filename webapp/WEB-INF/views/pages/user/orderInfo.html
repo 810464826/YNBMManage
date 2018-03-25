@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>一家一盒</title>
+    <link rel="stylesheet" href="../../css/main.css"/>
+    <link rel="stylesheet" href="../../css/pccommon.css"/>
+    <link rel="stylesheet" href="../../css/personCenter.css"/>
+</head>
+<body>
+<header class="mainHeader">
+    <div class="logo">
+        <a href="../../goods_main.jsp">
+            <img src="../../img_new/LOGO.png" alt="logo"  title="首页" />
+        </a>
+    </div>
+
+    <ul class="header-icon">
+        <li>
+            <a href="info.jsp">
+                <img src="../../img/personCenter/personCenterIcon.png" alt="personCenterIcon" title="个人中心"/>
+            </a>
+        </li>
+        <li class="header-shopIcon">
+            <a href="../../pages/shopCart/cart.jsp">
+                <img src="../../img/personCenter/shoppingBusIcon.png" alt="shoppingBusIcon" title="去购物车"/>
+            </a>
+        </li>
+    </ul>
+    <ul class="header-nav">
+        <li  navName="account"><a href="/yijiayihe/user/info" >账号管理</a></li>
+        <li navName="orderInfo" class="header-nav-active" style="border-bottom:3px solid #FF712F;"><a href="orderInfo.html">订单管理</a></li>
+        <li navName="address"><a href="address.html">地址管理</a></li>
+        <li class="out"><a  href="">安全退出登录</a></li>
+    </ul>
+</header>
+<section id="main">
+    <div class="contain" id="orderInfo">
+        <!--没有任何订单-->
+        <div class="box noOrder-box-size hidden">
+            <div class="account-box-body">
+                <div class="noOrder-img-box">
+                    <img  src="../../img/personCenter/noOrderIcon.png" alt="noOrderIcon"/>
+                     <span class="noOrder-imgInfo">18911284586</span>
+                </div>
+            </div>
+            <footer class="box-footer">
+                <div class="goOther">
+                    <a href="#">去逛逛</a>
+                </div>
+            </footer>
+        </div>
+        <!--点击删除按钮时的弹出框-->
+        <div id="deleteOrCancelMask" class="mask-box" style="display:none">
+            <div class="mask"></div>
+            <div class="box alert-box-size">
+                <h2 class="box-header alert-box-header">提示<a href="javascript:void(0);" class="fr alertClose">×</a></h2>
+                <div class="alert-box-body" >
+                    <div class="alertInfo">
+                        <img src="../../img/personCenter/delIcon.png" alt=""/>
+                        <span>您确定要删除该订单吗？</span>
+                    </div>
+                </div>
+                <footer class="box-footer alert-box-footer" >
+                    <div class="alertBtn-box">
+                        <a id="alertSure" href="javascript:void(0);">确定</a>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <div class="mask-box" style="display:none;" >
+            <div class="mask"></div>
+            <div class="box alert-box-size goQuery">
+                <h2 class="box-header alert-box-header">提示<a href="javascript:void(0);" class="fr alertClose">×</a></h2>
+                <div class="alert-box-body" >
+                    <div class="alertInfo">
+                        <p>承运来源：<span>顺风快递</span></p>
+                        <p class="waybillNum">运单编号：<span>2288384899989</span></p>
+                    </div>
+                </div>
+                <footer class="box-footer alert-box-footer" >
+                    <div class="alertBtn-box">
+                        <a href="javascript:void(0);">去查询<img src="../../img/personCenter/goQueryIcon.png" alt="goQueryIcon"/></a>
+
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+
+
+    </div>
+</section>
+</body>
+<script src="../../js/jquery-1.11.3.min.js"></script>
+<script src="../../js/personCenter.js"></script>
+<script src="../../js/orderInfo.js"></script>
+</html>

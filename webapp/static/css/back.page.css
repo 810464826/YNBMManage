@@ -1,0 +1,6 @@
+.header{height: 50px;border-bottom: 1px solid #e3e3e3}
+.menu{width: 40%;float: left;color: #2c2c2c;font-size: 12px;text-align: center;padding-top: 8px;}
+.menu span{margin-right: 50px;padding-bottom: 14px;}
+.menu span.active{border-bottom: 3px solid #ff712f}
+.menu a{color: #2c2c2c;}
+

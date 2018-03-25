@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.member.dao.MemberDao">
+    
+	<sql id="memberColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.phone AS "phone",
+		a.level AS "level",
+		a.create_time AS "createTime",
+		a.ordernum AS "ordernum",
+		a.update_time AS "updateTime",
+		a.nickname AS "nickname",
+		a.faceicon AS "faceicon",
+		a.pay_time AS "payTime",
+		a.commission AS "commission",
+		a.parent_id AS "parentId",
+		a.openid AS "openid",
+		a.fullname AS "fullname",
+		a.integral AS "integral"  
+	</sql>
+	
+	<sql id="memberJoins">
+	</sql>
+    
+	<select id="get" resultType="Member">
+		SELECT 
+			<include refid="memberColumns"/>
+		FROM member a
+		<include refid="memberJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="Member">
+		SELECT 
+			<include refid="memberColumns"/>
+		FROM member a
+		<include refid="memberJoins"/>
+		<where>
+			
+			<if test="name != null and name != ''">
+				AND a.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+			<if test="phone != null and phone != ''">
+				AND a.phone = #{phone}
+			</if>
+			<if test="level != null and level != ''">
+				AND a.level = #{level}
+			</if>
+			<if test="ordernum != null and ordernum != ''">
+				AND a.ordernum LIKE 
+					<if test="dbName == 'oracle'">'%'||#{ordernum}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{ordernum}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{ordernum},'%')</if>
+			</if>
+			<if test="nickname != null and nickname != ''">
+				AND a.nickname LIKE 
+					<if test="dbName == 'oracle'">'%'||#{nickname}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{nickname}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{nickname},'%')</if>
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Member">
+		SELECT 
+			<include refid="memberColumns"/>
+		FROM member a
+		<include refid="memberJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO member(
+			name,
+			phone,
+			level,
+			create_time,
+			ordernum,
+			update_time,
+			nickname,
+			faceicon,
+			pay_time
+		) VALUES (
+			#{name},
+			#{phone},
+			#{level},
+			#{createTime},
+			#{ordernum},
+			#{updateTime},
+			#{nickname},
+			#{faceicon},
+			#{payTime},
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE member SET 	
+			name = #{name},
+			phone = #{phone},
+			level = #{level},
+			create_time = #{createTime},
+			ordernum = #{ordernum},
+			update_time = #{updateTime},
+			nickname = #{nickname},
+			faceicon = #{faceicon},
+			pay_time = #{payTime},
+			commission = #{commission} 
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM member
+		WHERE id = #{id}
+	</update>
+
+</mapper>

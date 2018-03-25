@@ -1,0 +1,137 @@
+#main{margin-top:70px;text-align:center;}
+/********************** 较为通用的框样式 *****************************/
+.box{background-color:#FFF;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow:0  0 4px 0 #D8D8D8;
+    -moz-box-shadow: 0 0 4px 0 #D8D8D8;
+    box-shadow: 0 0 4px 0 #D8D8D8;
+    position:relative;
+    display:inline-block;
+    margin:0 15px 15px 15px;
+    vertical-align:middle;
+}
+.box-header{-webkit-border-top-left-radius: 6px;
+            -webkit-border-top-right-radius: 6px;
+        -moz-border-top-left-radius: 6px;
+        -moz-border-top-right-radius: 6px;
+         border-top-left-radius: 6px;
+         border-top-right-radius: 6px;
+        -moz-opacity: 0.8;
+        opacity: 0.8;
+        background-image:linear-gradient(to bottom,#FFAA5C,#FF712F);
+        color: #FFF;
+        height:40px;
+}
+.btn-box{text-align:center;position:absolute;width:230px;padding:0 60px;bottom:0;}
+.btn-box>button{width:80px;height:30px;color:#707070;background-color:#FFF;
+    -webkit-box-shadow: 0 0 0 1px #979797;
+    -moz-box-shadow: 0 0 0 1px #979797;
+    box-shadow: 0 0 0 1px #979797;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+.btn-box>button:hover,.btn-box>button.active{color:#FF712F;
+    -webkit-box-shadow: 0 0 0 1px #FF712F;
+    -moz-box-shadow: 0 0 0 1px #FF712F;
+    box-shadow: 0 0 0 1px #FF712F;}
+.box-footer{position:absolute;bottom:50px;width:100%;}
+/********** 表单中的input样式 ***********/
+.box-form>form{margin:0 55px;}
+.box-form-input input{width:100%;height:30px;padding:0 10px;display:block;
+    -webkit-box-shadow:0 0 0 1px #D2D2D2 inset ;
+    -moz-box-shadow: 0 0 0 1px #D2D2D2 inset;
+    box-shadow: 0 0 0 1px #D2D2D2 inset;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/****** 验证错误时的样式 ********/
+.box-form-errorInfo{height:30px;line-height:30px;color:#FF712F;text-align:left;font-size:12px;vertical-align:middle; opacity:0;}
+.box-form-errorInfo>img{vertical-align:middle;margin-top:-2px;}
+/******************复选框样式***************/
+.checkBox{}
+.mainHeader{background-color:#fff;}
+#agreen{
+    display:inline-block;
+    background-color:rgb(23,143,242);
+    vertical-align:middle;
+    width:10px;
+    height:10px;
+    margin-top:-9px;
+    border-radius:1px;
+    color:#fff;
+    position:relative;
+    margin-right:1px;
+    border:1px solid rgb(23,143,242);
+    z-index:5;
+}
+.uncheck .rightIcon{display:none;}
+.uncheck #agreen{
+    border:1px solid #707070;
+    background-color:#fff;
+}
+.rightIcon,.rightIcon>b{
+    display:inline-block;
+}
+.rightIcon{
+    background-color:#fff;
+    position:relative;
+    width:8px;
+    height:5px;
+    transform:rotate(-45deg);
+    top:-8px;
+    left:1px;
+    z-index:6;
+}
+.rightIcon>b{
+    background-color:rgb(23,143,242);
+    position:absolute;
+    right:-1px;
+    top:-1px;
+    width:7px;
+    height:4px;
+    z-index:7;
+}
+.label{position:relative;z-index:7;font-size:12px;line-height:12px;height:12px;top:-4px;}
+
+/************翻转样式***************/
+.rotate-box{position:relative;}
+.rotate-box>.front,.rotate-box>.back{position:absolute;left:0;top:0;bottom:0;right:0;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;}
+.rotate-box>.front{transform:rotateY(0deg);}
+.rotate-box>.back{transform:rotateY(-180deg);}
+
+/************文件选择样式*************/
+.updateBox{display:inline-block;position:relative;width:70px;height:30px;vertical-align:middle;margin-top:-2px;}
+.updateBox>input{position:absolute;width:68px;height:28px;left:0;right:0;top:0;bottom:0;opacity:0;}
+.updateBox>label{width:68px;height:28px;line-height:28px;display:inline-block;border:1px solid #D2D2D2;
+    -webkit-border-radius: 3px;position:absolute;left:0;right:0;top:0;bottom:0;
+    -moz-border-radius: 3px;
+    border-radius: 3px;}
+.chooseFile{width:148px;height:28px;line-height:28px;display:inline-block;border:1px solid #D2D2D2;
+    -webkit-border-radius: 3px;margin-top:20px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;}
+
+
+
+
+
+
+
+
+
+
+
+

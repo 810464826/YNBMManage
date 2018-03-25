@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>一家一盒</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/waterfall.css">
+<link rel="stylesheet" href="../../css/main.css" />
+<link rel="stylesheet" href="../../css/pccommon.css" />
+<link rel="stylesheet" href="../../css/personCenter.css" />
+</head>
+<body>
+	<header class="mainHeader">
+		<div class="logo">
+			<a href="../../index.html"> <img src="../../img_new/LOGO.png"
+				alt="logo" />
+			</a>
+		</div>
+
+		<ul class="header-icon">
+			<li><a href="../../index.html"> <img
+					src="../../img/personCenter/user-icon-gray.png"
+					alt="personCenterIcon" />
+			</a></li>
+			<li class="header-shopIcon"><a href="../../index.html"> <img
+					src="../../img/personCenter/shoppingBusIcon.png" alt="shoppingBusIcon" />
+			</a></li>
+		</ul>
+		
+	</header>
+	<div id="header2">
+		<a href="../../index.html"> <img src="../../img/banner.png"
+			alt="personCenterIcon" />
+		</a>
+	</div>
+	<div id="container"></div>
+	<script src="js/libs/jquery/jquery.js"></script>
+	<script src="js/libs/handlebars/handlebars.js"></script>
+	<script src="js/waterfall.min.js"></script>
+	<script>
+		$('#container').waterfall({
+			itemCls : 'item',
+			colWidth : 285,
+			gutterWidth : 20,
+			gutterHeight : 20,
+			checkImagesLoaded : false,
+			dataType : 'html',
+			path : function(page) {
+				return 'data/data.html?page=' + page;
+			}
+		});
+	</script>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push([ '_setAccount', 'UA-1245097-16' ]);
+		_gaq.push([ '_trackPageview' ]);
+		_gaq.push([ '_trackPageLoadTime' ]);
+	</script>
+</body>
+</html>

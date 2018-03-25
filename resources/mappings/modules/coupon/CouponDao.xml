@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.coupon.dao.CouponDao">
+    
+	<sql id="couponColumns">
+		a.id AS "id",
+		a.money AS "money",
+		a.starttime AS "starttime",
+		a.type AS "type",
+		a.endtime AS "endtime",
+		a.userid AS "userid",
+		a.isuse AS "isuse",
+		a.number AS "number",
+		d.name AS "shopid"
+	</sql>
+	
+	<sql id="couponJoins">
+	LEFT JOIN sys_office d ON d.id=a.shopid
+	</sql>
+    
+    
+    <select id="findNameById" resultType="Coupon">
+		SELECT 
+			<include refid="couponColumns"/>
+		FROM coupon a
+		<include refid="couponJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="get" resultType="Coupon">
+		SELECT 
+			<include refid="couponColumns"/>
+		FROM coupon a
+		<include refid="couponJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="Coupon">
+		SELECT 
+			<include refid="couponColumns"/>
+		FROM coupon a
+		<include refid="couponJoins"/>
+		<where>
+			
+			<if test="money != null and money != ''">
+				AND a.money = #{money}
+			</if>
+			<if test="starttime != null and starttime != ''">
+				AND a.starttime = #{starttime}
+			</if>
+			<if test="type != null and type != ''">
+				AND a.type = #{type}
+			</if>
+			<if test="endtime != null and endtime != ''">
+				AND a.endtime = #{endtime}
+			</if>
+			<if test="userid != null and userid != ''">
+				AND a.userid = #{userid}
+			</if>
+			<if test="isuse != null and isuse != ''">
+				AND a.isuse = #{isuse}
+			</if>
+			<if test="shopid != null and shopid != ''">
+				AND a.shopid =#{shopid}
+			</if>
+			<if test="number != null and number != ''">
+				AND a.number =#{number}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Coupon">
+		SELECT 
+			<include refid="couponColumns"/>
+		FROM coupon a
+		<include refid="couponJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO coupon(
+			money,
+			starttime,
+			type,
+			endtime,
+			userid,
+			isuse,
+			number,
+			shopid
+		) VALUES (
+			#{money},
+			#{starttime},
+			#{type},
+			#{endtime},
+			#{userid},
+			#{isuse},
+			#{number},
+			#{shopid}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE coupon SET 	
+			money = #{money},
+			starttime = #{starttime},
+			type = #{type},
+			endtime = #{endtime},
+			userid = #{userid},
+			isuse = #{isuse},
+			number = #{number},
+			shopid = #{shopid}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM coupon
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

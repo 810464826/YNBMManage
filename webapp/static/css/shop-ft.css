@@ -1,0 +1,78 @@
+#foot-one{
+    width: 1440px;
+    height: 162px;
+    position: relative;
+    border-top: 1px solid #D2D2D2;
+    clear: both;
+}
+#foot-one table{
+    width: 1440px;
+    margin: 23px auto;
+    text-align: center;
+    position: relative;
+}
+#foot-one>table td{
+    border-right: 1px solid #D2D2D2;
+    width:480px ;
+    height: 102px;
+}
+.service{
+    font-size: 12px;
+    color: #444;
+    margin-bottom: 20px;
+}
+.number{
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+#foot-one #tab{
+    padding: 0px 78px;
+    text-align: left;
+    width: 324px;
+    vertical-align: top;
+}
+.tab-one{
+    color: #444;
+    font-size: 12px;
+    margin-bottom:18px;
+    text-align: center;
+}
+.tab-two{
+    font-size: 12px;
+    color: #707070;
+    line-height:18px;
+}
+.ceall{
+    border: none;
+}
+.ceall p{
+    font-size: 12px;
+    color: #444;
+}
+.ceall>img{
+    margin: 5px auto;
+}
+#foot-two{
+    text-align: center;
+    width:1440px;
+    height: 60px;
+    line-height: 16px;
+    background-image:url("../img/helpCenter/foot.png");
+}
+#foot-two a{
+    margin-left:24px;
+    color: #FFFFFF;
+    font-size:12px;
+}
+.fd-one{
+    padding-top: 10px;
+}
+#foot-two .fd-two{
+    color: #FFFFFF;
+    font-size: 10px;
+    margin-top: 6px;
+}
+.fd-ad{
+    margin: 0px 20px;
+}
+/***********地址部分结束**************/

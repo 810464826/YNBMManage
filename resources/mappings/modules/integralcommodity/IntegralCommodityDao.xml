@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.integralcommodity.dao.IntegralCommodityDao">
+    
+	<sql id="integralCommodityColumns">
+		a.id AS "id",
+		a.number AS "number",
+		a.name AS "name",
+		a.picture AS "picture",
+		a.integral AS "integral",
+		a.typeid AS "typeid",
+		a.onepicture AS "onepicture",
+		a.twopicture AS "twopicture",
+		a.threepicture AS "threepicture",
+		a.description AS "description",
+		a.status AS "status",
+		a.createtime AS "createtime"
+	</sql>
+	
+	<sql id="integralCommodityJoins">
+	</sql>
+    
+	<select id="get" resultType="IntegralCommodity">
+		SELECT 
+			<include refid="integralCommodityColumns"/>
+		FROM integral_commodity a
+		<include refid="integralCommodityJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="IntegralCommodity">
+		SELECT 
+			<include refid="integralCommodityColumns"/>
+		FROM integral_commodity a
+		<include refid="integralCommodityJoins"/>
+		<where>
+			
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="number != null and number != ''">
+				AND a.number = #{number}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+			<if test="integral != null and integral != ''">
+				AND a.integral = #{integral}
+			</if>
+			<if test="typeid != null and typeid != ''">
+				AND a.typeid = #{typeid}
+			</if>
+			<if test="status != null and status != ''">
+				AND a.status = #{status}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllCommodity" resultType="IntegralCommodity">
+		SELECT 
+			<include refid="integralCommodityColumns"/>
+		FROM integral_commodity a
+		<include refid="integralCommodityJoins"/>
+			WHERE a.typeid=#{typeid}	
+	</select>
+	
+	<select id="findAllList" resultType="IntegralCommodity">
+		SELECT 
+			<include refid="integralCommodityColumns"/>
+		FROM integral_commodity a
+		<include refid="integralCommodityJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO integral_commodity(
+			number,
+			name,
+			picture,
+			integral,
+			typeid,
+			onepicture,
+			twopicture,
+			threepicture,
+			description,
+			status,
+			createtime
+		) VALUES (
+			#{number},
+			#{name},
+			#{picture},
+			#{integral},
+			#{typeid},
+			#{onepicture},
+			#{twopicture},
+			#{threepicture},
+			#{description},
+			#{status},
+			#{createtime}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE integral_commodity SET 	
+			number = #{number},
+			name = #{name},
+			picture = #{picture},
+			integral = #{integral},
+			typeid = #{typeid},
+			onepicture = #{onepicture},
+			twopicture = #{twopicture},
+			threepicture = #{threepicture},
+			description = #{description},
+			status = #{status},
+			createtime = #{createtime}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM integral_commodity
+		WHERE id = #{id}
+	</update>
+	
+	<!--将状态设置为下架售罄  -->
+	<update id="deleteCommodity">
+		UPDATE integral_commodity SET status=#{status}
+		WHERE typeId = #{id}
+	</update>
+	
+</mapper>

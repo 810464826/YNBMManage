@@ -1,0 +1,256 @@
+body{background-color: #F6F6F6;}
+
+.header-icon{float:right;text-align:center;margin-right:110px;}
+.header-icon>li{padding-top:15px;}
+.header-icon>li>a{float:left;height:22px;}
+.header-icon>li>a>img{vertical-align:top;}
+.header-shopIcon{margin-left:50px;}
+
+.header-nav{display:inline-block;margin-left:190px;}
+.header-nav>li{margin:0 30px;border-bottom:3px solid transparent;height:37px;margin-top:10px;}
+.header-nav>li>a{color:#707070;}
+.header-nav>li>.out{color:#707070;}
+.header-nav>.header-nav-active{border-bottom:3px solid #FF712F;}
+.header-nav>li:hover{border-bottom:3px solid #FF712F;}
+.header-nav>.header-nav-active>a{color:#2C2C2C;}
+.header-nav>li>a:hover{color:#2C2C2C;}
+/********************************account页面的样式***********************************************/
+.account-box-size{width:350px;height:350px;}
+.account-box-header{text-align:center; font-size:14px;margin-bottom:40px;}
+.account-box-img{background-color:#F6F6F6;text-align:center;margin:0 auto;
+    width:120px;height:120px;overflow:hidden;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;}
+.account-box-img>img{vertical-align:middle;}
+.box-tableCell{display:table-cell;vertical-align:middle;text-align:center;width:120px;height:120px;}
+.account-box-size .btn-box.box-vip-btn>button{width:90px;}
+#bs-a>a{color:#707070;}
+#bs-a>a:hover{color:#FF712F;}
+.account-box-imgInfo{text-align:center;font-size:16px;color:#444;margin-top:20px;}
+.contain>ul{margin:0 auto;width:1150px;}
+.contain>ul:after{content:"";display:block;clear:both;}
+.contain>ul>li{width:350px;height:350px;float:left;padding:15px;}
+
+.account-box-body.box-form-input{margin:70px 55px 0 55px;}
+.oldName{text-align:left;font-size:14px;color:#444;margin-bottom:10px;}
+/*****************************************orderInfo页面的样式****************************************/
+.noOrder-box-size{width:800px;height:400px;}
+.goOther{width:240px;height:34px;border-radius:17px;box-shadow: 0 0 0 1px #E73B1A;margin:0 auto;}
+.goOther>a{display:block;width:240px;height:34px;color:#fff;font-size:14px;
+    background:url(../img_new/success_goOtherBtn.png) no-repeat;}
+.noOrder-img-box{margin-top:100px;}
+.noOrder-img-box>img{vertical-align:middle;}
+.noOrder-imgInfo{font-size:18px;color:#D2D2D2;}
+/*很多订单的列表的样式*/
+.orderList-box-size{width:900px;}
+.orderList-box-header{font-size:14px;padding-left:20px;}
+.orderList-box-header>.fr{height:100%;}
+.orderList-box-header>.fr .deleteOrder{text-decoration:underline;cursor:pointer;}
+.orderList-box-header>.fr>li{padding:0 10px;height:100%;vertical-align:middle;}
+.orderList-box-header .orderList-dropMenu img{margin-right:10px;margin-top:15px;}
+.orderState>img{vertical-align:middle;margin-right:4px;}
+.orderList-box-header>.fr>li.divider>div{display:inline-block;height:25px;width:1px;
+    background-color:#FFF;padding:0;vertical-align:middle;margin-top:7px;}
+/**/
+.shopList{height:189px;width:100%;border-collapse:collapse;font-size:12px;}
+.shopList tr{vertical-align:middle;}
+.shopList th{font-weight: normal}
+.shopList .tbody-t1{border-bottom:1px solid #D2D2D2;color:#707070;}
+.shopList .tbody-t1 td{padding-top:20px;padding-bottom:20px;}
+.shopList td.t11{text-align:left;padding-left:40px;}
+.shopList td.t12{position:relative;padding-top:16px;}
+.shopList td.t12>del{position:absolute;left:-4px;top:55px;color:#D2D2D2;}
+.shopList td.t12>.price{}
+.shopList td.t14{padding-right:40px;}
+.shopList td.t12,.shopList td.t14{text-align:left;}
+.shopList td.t13{padding-right:80px;text-align:center;}
+.shopList td.t14{padding-left:2px;}
+.shopList .tbody-t2{color:#444;}
+.shopList .tbody-t2 td{height:57px;vertical-align:middle;}
+.shopList td.t21{width:170px;text-align:left;padding-left:40px;}
+.shopList td.t22,.shopList td.t23{width:170px;text-align:left;}
+.shopList td.t24{text-align:right;padding-right:40px;line-height:57px;}
+.shopList>thead>tr{height:30px;background-color:#D2D2D2;padding:0 50px;color:#444;}
+.shopList>thead th.t02,.shopList>thead th.t03,.shopList>thead th.t04{padding-right:80px;}
+.shopList th.t01{text-align:left;padding-left:58px;}
+.shopIcon{display:inline-block;}
+.shopIcon>img{vertical-align:middle;width:60px;height:60px;}
+.orderList-pay-size{width:900px;height:285px;}
+.payBtn-box{height:56px;}
+.alertBtn-box>a,.payBtn-box>a{float:right;width:100px;height:36px;background-color:#FF712F;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    color:#FFF;font-size:16px;margin-right:40px;}
+.orderPay{font-size:20px;color:#FF712F;vertical-align:bottom;}
+
+/******************** 商品运送的状态页面 **********************/
+/*处于完成状态时*/
+.sendSlide{}
+.payBtn-box{display:none;}
+.sendState{height:136px;position:relative;}
+.sendInfo{height:96px;border-top:1px solid #D2D2D2;}
+.sendInfo>li{padding:15px 0;}
+.sendInfo>li>p{line-height:22px;text-align:left;padding-left:40px;}
+.orderList-box-body{color:#707070;}
+.sendInfo-person{border-right:1px solid #D2D2D2;width:500px;}
+
+.sendState .progressLine{width:100%;height:1px;background-color:#FF712F;position:absolute;top:50%;}
+.sendState .orderSuccess .progressLine{width:50%;right:0;}
+.sendState .paySuccess .progressLine,.sendState .shopout .progressLine{right:0;}
+.sendState .tradeSuccess .progressLine{width:50%;left:0;}
+.sendState .radius{display:inline-block;width:8px;height:8px;background-color:#FF712F;
+    border:1px solid #FF712F;position:relative;z-index:1;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;}
+.sendState ol>li{float:none;line-height:28px;height:28px;position:relative;}
+.sendState>ul>li{width:170px;}
+.sendState>ul{width:680px;padding-top:13px;}
+.sendState>ul:after{content:"";display:block;clear:both;}
+.color444{color:#444;}
+.sendState .os11{line-height:normal;padding:9px 0;height:auto;}
+.os11>p,.os11>span{height:12px;line-height:12px;display:block;}
+
+/*处于取消状态时的样式*/
+.orderCancel .radius {background-color:#707070;border-color:#707070;}
+.orderCancel .progressLine{background-color:#707070;border-color:#707070;}
+.orderCancel .paySuccess .os11,.orderCancel .paySuccess .os12>.radius,.orderCancel .paySuccess .color444{opacity:0;}
+.orderCancel .shopOut .os11,.orderCancel .shopOut .os12>.radius,.orderCancel .shopOut .color444{opacity:0;}
+
+
+/*订单待支付时的样式*/
+.sendState-pay-size{height:518px;width:900px;}
+.orderWaitPay .radius{background-color:#FFF;}
+.orderWaitPay .orderSuccess .radius{background-color:#FF712F;}
+.orderWaitPay .os11{opacity:0;}
+.orderWaitPay .orderSuccess .os11{opacity:1;}
+
+/*订单待支付时的样式*/
+.orderPaySuccess .shopOut  .radius,.orderPaySuccess .tradeSuccess  .radius{background-color:#FFF;}
+.orderPaySuccess .shopOut  .os11,.orderPaySuccess .tradeSuccess  .os11{opacity:0;}
+
+/*商品出库时的样式*/
+.shopOutLibrary .tradeSuccess  .radius{background-color:#FFF;}
+.shopOutLibrary .tradeSuccess  .os11{opacity:0;}
+
+/******************************************  弹出框的样式 ****************************************************/
+.alert-box-size{width:400px;height:200px;}
+.box-header.alert-box-header{text-align:left;font-size:14px;height:30px;line-height:30px;padding:0 20px;margin-bottom:40px;}
+.mask-box{position:fixed;left:0;top:0;bottom:0;right:0;z-index:2;}
+.mask{position:fixed;left:0;top:0;bottom:0;right:0;background-color:#000;opacity:0.5;z-index:3;}
+.mask-box>.alert-box-size{position:absolute;top:160px;left:50%;margin-left:-200px;z-index:4;background-color:#FFF;}
+.mask-box .alert-box-footer{bottom:20px;text-align:center;height:36px;}
+.alertBtn-box{display:inline-block;}
+.alertBtn-box>a{margin:0;}
+.alertBtn-box>a>img{vertical-align:middle;margin-top:-3px;margin-left:6px;}
+
+.alertInfo>img{vertical-align:middle;background-color:#FFF;margin-top:-2px;}
+.alertInfo{padding-top:8px;height:20px;line-height:20px;font-size:16px;color:#707070;background-color:#FFF;}
+.alertClose{font-size:20px;color:#fff;}
+
+/*去查询*/
+.goQuery .alertInfo{padding:0;margin-left:70px;text-align:left;height:auto;}
+.goQuery .alertInfo>p{padding-bottom:10px;}
+.goQuery .alertInfo>.waybillNum>span{color:#FF712F;}
+
+/******************************************  address页面  **********************************************/
+.addr-box-size{width:350px;height:350px;}
+/*没有任何收货地址时*/
+.noAddr-box-img{margin-top:70px;font-size:16px;color:#D2D2D2;}
+.noAddr-box-img>p{padding:16px;line-height:16px;}
+#addNewAddr{width:90px;}
+
+.addr-box-header{padding:0 30px;margin-bottom:30px;}
+.addr-box-header>.fl>h2{font-size:18px;}
+.addr-box-header>.fr>img{vertical-align:middle;margin-top:-2px;}
+.addr-box-body{color:#707070;}
+.addr-box-body>.personAddr{margin:0 auto;text-align:left;width:261px;}
+.addr-box-body>.personAddr .alignR{text-align:right;}
+.addr-box-body>.personAddr td{line-height:12px;padding-bottom:10px;}
+.addr-box-body>.personAddr td.alignR{width:60px;font-size:12px;}
+
+.addr-box-header>.fr>a{color:#FFF;}
+.addr-gray{background-color:#D2D2D2;background-image:none;}
+.addr-gray.addr-box-header>.fr>a{text-decoration:underline;}
+/*添加新的收货地址弹出框样式*/
+.mask-box>.addr-mask-box{width:500px;height:292px;margin-left:-250px}
+.addr-mask-box form input,.addr-select select{border:1px solid #707070;padding-left:10px;
+    line-height:33px;height:33px;vertical-align:middle;margin-top:10px;width:134px;margin-right:20px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;}
+.addr-mask-box>.alert-box-header{margin-bottom:10px;}
+.addr-mask-box .alertInfo ul{width:428px;margin:0 auto;}
+.addr-mask-box .alertInfo li{float:none;text-align:left;}
+#address .rotate-box,#address #addNewAddrBox{
+    display:inline-block;width:380px;height:380px;vertical-align:middle;
+}
+#address #addNewAddrBox{width:350px;height:350px;margin-bottom:30px;}
+#address{text-align:center;}
+#checkToggle{padding-top:20px;height:36px;}
+.payBtn-box.fr{text-align:center;line-height:36px;width:100px;height:36px;display:block;}
+.payBtn-box.fr>a{font-size:14px;margin:0;}
+.addr-mask-box .alertInfo{padding:0;}
+
+.addr-mask-box form input{background-color:#F8F8F8;
+    -webkit-box-shadow: 0 2px 6px 0 #BFBFBF inset;
+    -moz-box-shadow: 0 2px 6px 0 #BFBFBF inset;
+    box-shadow: 0 2px 6px 0 #BFBFBF inset;
+}
+.addr-mask-box form input:focus{background-color:#FFF;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.addr-select select{
+    background-image:linear-gradient(to bottom,#FCFCFC 0%,#D0D0D0 100%);
+    height:33px;
+}
+.addr-box-body .addr-select select{width:60px;margin:0;}
+.addr-box-body .addr-select select.last{position:relative;}
+.addr-select select:focus{outline:none;}
+#telPhone,#fixedPhone{width:274px;margin-right:0;margin-left:-6px;}
+#city,#county{width:127px;}
+#city{margin-left:-6px;}
+#county{margin-right:0;float:right;}
+.contain#address>ul{text-align:center;}
+.contain#address>ul>li{display:inline-block;float:none;vertical-align:middle;}
+.setDefault{}
+
+/****修改地址中的input样式****/
+.personAddr.box-form-input tr>td{padding-bottom:2px;}
+.personAddr.box-form-input tr>td>input{color:#444;}
+
+/** 地址框背面的 select元素的样式 **/
+.rotate-box .back td.t32>select{
+    margin:0 2px 0 0;padding:0;width:61px;
+}
+.rotate-box .back td.t32>select.last{
+    margin:0;right:-2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

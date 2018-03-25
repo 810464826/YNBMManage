@@ -1,0 +1,81 @@
+{
+"total": 11,
+"result": [
+{
+"shopid":1,
+"prices":69.0,
+"name":"黄桃",
+"image": "../../img/goods1.jpg",
+"width": 245
+},
+{
+"shopid":2,
+"prices":68.5,
+"name":"千禧小番茄 6斤原箱",
+"image": "../../img/goods2.jpg",
+"width": 245
+},
+{
+"shopid":3,
+"prices":45.3,
+"name":"赣南脐橙",
+"image": "../../img/goods3.jpg",
+"width": 245
+},
+{
+"shopid":4,
+"prices":63.48,
+"name":"菲律宾凤梨 2个装",
+"image": "../../img/goods4.jpg",
+"width": 245
+},
+{
+"shopid":5,
+"prices":82.6,
+"name":"甜桔柚 10斤原箱装",
+"image": "../../img/goods5.jpg",
+"width": 245
+},
+{
+"shopid":6,
+"prices":77.0,
+"name":"美国红玫瑰苹果 8个装",
+"image": "../../img/goods6.jpg",
+"width": 245
+},
+{
+"shopid":7,
+"prices":45.3,
+"name":"永春冰糖芦柑 7斤装",
+"image": "../../img/goods7.jpg",
+"width": 245
+},
+{
+"shopid":8,
+"prices":51.0,
+"name":"新西兰有机蓝莓 2盒装",
+"image": "../../img/goods8.jpg",
+"width": 245
+},
+{
+"shopid":9,
+"prices":29.5,
+"name":"甘肃红富士 8个装",
+"image": "../../img/goods9.jpg",
+"width": 245
+},
+{
+"shopid":10,
+"prices":97.0,
+"name":"国产莲雾 7斤原箱装",
+"image": "../../img/goods10.jpg",
+"width": 245
+},
+{
+"shopid":11,
+"prices":56.8,
+"name":"云南丑八怪7斤装",
+"image": "../../img/goods11.jpg",
+"width": 245
+}
+]}

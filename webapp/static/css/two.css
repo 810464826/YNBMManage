@@ -1,0 +1,63 @@
+#font-img{
+    width: 895px;
+    height: 115px;
+}
+#font-img .font-img{
+    width: 115px;
+    height: 115px;
+    text-align: center;
+    vertical-align:middle;
+    background-image: url("../img/helpCenter/huiyuan.png");
+}
+.font-img img{
+    margin-top:28px;
+}
+#font-img div{
+    float: left;
+}
+#font-img .font-ty{
+    height: 115px;
+    margin-left: 20px;
+    margin-top:28px;
+}
+#foot-one{
+    width: 1440px;
+    height: 162px;
+    position: relative;
+    border-top: 1px solid #D2D2D2;
+    clear: both;
+}
+.font-lh{
+    margin-left: 80px;
+}
+.font-qy{
+    width:430px;
+    height:auto;
+    float: left;
+    margin-top: 14px;
+}
+.qy-lh{
+    margin-left: 35px;
+}
+.font-wei{
+    margin-left: 10px;
+    font-size: 14px;
+    color: #444;
+}
+.font-cont{
+	text-align:justify;
+    margin-top: 7px;
+    margin-bottom: 30px;
+}
+.section .pl{
+    width: 895px;
+}
+#font-zy{
+    clear: both;
+    margin-bottom: 30px;
+}
+#font-zy p{
+    color: #444;
+}
+
+

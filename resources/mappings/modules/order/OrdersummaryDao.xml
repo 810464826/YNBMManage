@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.order.dao.OrdersummaryDao">
+    
+	<sql id="ordersummaryColumns">
+		a.id AS "id",
+		a.ordernum AS "ordernum",
+		a.price AS "price",
+		a.userid AS "userid",
+		a.addressid AS "addressid",
+		a.invoicetype AS "invoicetype",
+		a.invoicedesc AS "invoicedesc",
+		a.expresstime AS "expresstime",
+		a.status AS "status",
+		a.orderdesc AS "orderdesc",
+		a.yunfei AS "yunfei",
+		a.expresscomp AS "expresscomp",
+		a.expressno AS "expressno",
+		a.fahuotime AS "fahuotime",
+		a.paytime AS "paytime",
+		a.donetime AS "donetime",
+		a.create_time AS "createTime",
+		a.reason AS "reason",
+		a.reasontext AS "reasontext",
+		a.update_time AS "updateTime",
+		f.name AS "shopId"
+	</sql>
+	
+	<sql id="ordersummaryJoins">
+	LEFT JOIN address b ON b.id = a.addressid
+	LEFT JOIN sys_office f ON f.id = a.shopId
+	</sql>
+    
+	<select id="findOrderNumByAddressId" resultType="java.util.HashMap">
+		SELECT a.*,b.*,c.total,c.commodityType,d.* FROM ordersummary a
+		LEFT JOIN address b  ON b.id = a.addressid
+		LEFT JOIN cartitem c  ON c.orderNum = a.orderNum
+		LEFT JOIN commodity d ON d.id = c.commodityid
+		<where>
+			 
+			<if test="ordernum != null and ordernum != ''">
+				AND a.ordernum LIKE 
+					<if test="dbName == 'oracle'">'%'||#{ordernum}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{ordernum}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{ordernum},'%')</if>
+			</if>
+			<if test="userid != null and userid != ''">
+				AND a.userid = #{userid}
+			</if>
+			<if test="invoicetype != null and invoicetype != ''">
+				AND a.invoicetype = #{invoicetype}
+			</if>
+			<if test="status != null and status != ''">
+				AND a.status = #{status}
+			</if>
+			<if test="expresscomp != null and expresscomp != ''">
+				AND a.expresscomp = #{expresscomp}
+			</if>
+			<if test="shopId != null and shopId != ''">
+				AND a.shopId = #{shopId}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY a.create_time DESC,${page.orderBy} 
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<!--  
+	<select id="selectSysDict">
+		SELECT type FROM  sys_dict
+	</select>
+    -->
+   
+	<select id="get" resultType="Ordersummary">
+		SELECT 
+			<include refid="ordersummaryColumns"/>
+			,b.province AS "province",
+			b.city AS "city",
+			b.county AS "county",
+			b.address AS "address",
+			b.phone AS "phone",
+			b.username AS "username"
+			
+			
+		FROM ordersummary a 
+		<include refid="ordersummaryJoins"/>
+		WHERE a.id = #{id} 
+	</select>
+	
+	<select id="findList" resultType="Ordersummary">
+		SELECT 
+			<include refid="ordersummaryColumns"/>
+		FROM ordersummary a
+		<include refid="ordersummaryJoins"/>
+		<where>
+			
+			<if test="ordernum != null and ordernum != ''">
+				AND a.ordernum LIKE 
+					<if test="dbName == 'oracle'">'%'||#{ordernum}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{ordernum}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{ordernum},'%')</if>
+			</if>
+			<if test="userid != null and userid != ''">
+				AND a.userid = #{userid}
+			</if>
+			<if test="invoicetype != null and invoicetype != ''">
+				AND a.invoicetype = #{invoicetype}
+			</if>
+			<if test="status != null and status != ''">
+				AND a.status = #{status}
+			</if>
+			<if test="expresscomp != null and expresscomp != ''">
+				AND a.expresscomp = #{expresscomp}
+			</if>
+			<if test="shopId != null and shopId != ''">
+				AND a.shopId = #{shopId}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY a.create_time DESC,${page.orderBy} 
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Ordersummary">
+		SELECT 
+			<include refid="ordersummaryColumns"/>
+		FROM ordersummary a
+		<include refid="ordersummaryJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY a.create_time DESC,${page.orderBy} 
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO ordersummary(
+			ordernum,
+			price,
+			userid,
+			addressid,
+			invoicetype,
+			invoicedesc,
+			expresstime,
+			status,
+			orderdesc,
+			yunfei,
+			expresscomp,
+			expressno,
+			fahuotime,
+			paytime,
+			donetime,
+			create_time,
+			reason,
+			reasontext,
+			update_time
+		) VALUES (
+			#{ordernum},
+			#{price},
+			#{userid},
+			#{addressid},
+			#{invoicetype},
+			#{invoicedesc},
+			#{expresstime},
+			#{status},
+			#{orderdesc},
+			#{yunfei},
+			#{expresscomp},
+			#{expressno},
+			#{fahuotime},
+			#{paytime},
+			#{donetime},
+			#{createTime},
+			#{reason},
+			#{reasontext},
+			#{updateTime}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE ordersummary SET 	
+			ordernum = #{ordernum},
+			price = #{price},
+			userid = #{userid},
+			addressid = #{addressid},
+			invoicetype = #{invoicetype},
+			invoicedesc = #{invoicedesc},
+			expresstime = #{expresstime},
+			status = #{status},
+			orderdesc = #{orderdesc},
+			yunfei = #{yunfei},
+			expresscomp = #{expresscomp},
+			expressno = #{expressno},
+			fahuotime = #{fahuotime},
+			paytime = #{paytime},
+			donetime = #{donetime},
+			create_time = #{createTime},
+			reason = #{reason},
+			reasontext = #{reasontext},
+			update_time = #{updateTime}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM ordersummary
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

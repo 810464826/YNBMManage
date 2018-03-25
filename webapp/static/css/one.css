@@ -1,0 +1,21 @@
+.wm-mar{
+    margin-top:20px;
+}
+.font-wei{
+    margin-left: 6px;
+    font-size: 14px;
+    color: #444;
+}
+.font-cont{
+    margin-top: 3px;
+}
+.font-hei{
+    margin-bottom: 100px;
+}
+#foot-one{
+    width: 1440px;
+    height: 162px;
+    position: relative;
+    border-top: 1px solid #D2D2D2;
+    clear: both;
+}

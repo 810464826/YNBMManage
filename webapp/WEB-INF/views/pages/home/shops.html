@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>一家一盒</title>
+<link rel="stylesheet" href="../../css/main.css" />
+<link rel="stylesheet" href="../../css/pccommon.css" />
+<link rel="stylesheet" href="../../css/personCenter.css" />
+<link rel="stylesheet" href="../../css/reset.css">
+<link rel="stylesheet" href="../../css/waterfall.css">
+<style type="text/css">
+.title{
+    width: 245px;
+    height: 34px;
+    text-align: center;
+    margin-top:20px;
+    border-bottom: 1px #F6F6F6 solid;
+    color: #444;
+    font-size: 14px;
+}
+.jiage{
+    margin-top: 10px;
+    text-align: center;
+    color: #FF712F;
+    font-size: 22px;
+}
+</style>
+</head>
+<body>
+	<header class="mainHeader">
+		<div class="logo">
+			<a href="../../index.html"> <img src="../../img_new/LOGO.png"
+				alt="logo" />
+			</a>
+		</div>
+
+		<ul class="header-icon">
+			<li><a href="../../user/info"> <img
+					src="../../img/personCenter/user-icon-gray.png"
+					alt="personCenterIcon" />
+			</a></li>
+			<li class="header-shopIcon"><a href="../../shopCart/cart"> <img
+					src="../../img/personCenter/shoppingBusIcon.png"
+					alt="shoppingBusIcon" />
+			</a></li>
+		</ul>
+
+	</header>
+	<div id="header2">
+		<a href="../../index.html"> <img src="../../img/banner.png"
+			alt="personCenterIcon" />
+		</a>
+	</div>
+	<div id="container"></div>
+	<script type="text/x-handlebars-template" id="waterfall-tpl">
+{{#result}}
+    <div class="item">
+        <a href="../../index?goods_id={{shopid}}"><img src="{{image}}" width="{{width}}" height="{{height}}" /></a>
+		<div class="title">
+			<span>{{name}}</span>
+		</div>
+		<div class="jiage">
+			<span class="price">￥{{prices}}</span> 
+		</div>
+    </div>
+{{/result}}
+</script>
+	<script src="../../js_lib/jquery/jquery.js"></script>
+	<script src="../../js_lib/waterfall/libs/handlebars/handlebars.js"></script>
+	<script src="../../js_lib/waterfall/waterfall.min.js"></script>
+	<script>
+		$('#container').waterfall({
+			itemCls : 'item',
+			colWidth : 285,
+			gutterWidth : 20,
+			gutterHeight : 20,
+			dataType: "json",
+			checkImagesLoaded : false,
+			callbacks : {
+				loadingFinished : function($loading, isBeyondMaxPage) {
+					if (!isBeyondMaxPage) {
+						$loading.fadeOut();
+					} else {
+						$loading.hide();
+						//$('#page-navigation').show();
+					}
+				},
+			renderData: function (data, dataType) {
+            var tpl,
+                template,
+                resultNum = data.total;
+                
+            if ( resultNum < 20) {
+                $('#container').waterfall('pause', function() {
+                    $('#waterfall-message').html('<p style="color:#666;">到底了...</p>')
+                    //alert('no more data');
+                });
+            }
+    
+            if ( dataType === 'json' ||  dataType === 'jsonp'  ) { // json or jsonp format
+                tpl = $('#waterfall-tpl').html();
+                template = Handlebars.compile(tpl);
+    
+                return template(data);
+            } else { // html format
+                return data;
+            }
+        }
+			},
+			
+			path : function(page) {
+				return 'data/data' + page + '.json';
+			}
+		});
+	</script>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push([ '_setAccount', 'UA-1245097-16' ]);
+		_gaq.push([ '_trackPageview' ]);
+		_gaq.push([ '_trackPageLoadTime' ]);
+		(function() {
+			var ga = document.createElement('script');
+			ga.type = 'text/javascript';
+			ga.async = true;
+			ga.src = 'https://ssl.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</body>
+</html>

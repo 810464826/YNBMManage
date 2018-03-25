@@ -1,0 +1,117 @@
+.header{height:50px;border-bottom: 1px solid #e3e3e3;min-width:1200px;margin:0 auto;}
+
+
+button{font-family:"微软雅黑";}
+.cart_content{background: #f6f6f6;height:100%;clear:both; text-align:center;}
+.cart_content > .tipContent{margin-top: 70px;width:800px;height:400px;
+	background-color: #fff;border-radius:6px;color:#707070;font-size:12px;border:solid 1px #d8d8d8;
+	-webkit-box-shadow: 0 0 4px 0 #D8D8D8;
+	-moz-box-shadow: 0 0 4px 0 #D8D8D8;
+	box-shadow: 0 0 4px 0 #D8D8D8;
+}
+.tipContent:after{display:block;content:"";clear:both;}
+.goOther{width:240px;height:34px;margin-top:72px;border-radius:17px;box-shadow: 0 0 0 1px #E73B1A;}
+.goOther>a{display:block;width:240px;height:34px;color:#fff;font-size:14px;
+			      background:url(../img_new/success_goOtherBtn.png) no-repeat;}
+.shop-xg{ margin-top:11px;}	
+.shop-xg-text{ margin:0px 10px;}
+.shop-xg .shop-xg-time{ font-size:24px;color:#FF712F;top:4px;position:relative;}		      
+.cart_step{ font-size:16px;list-style:none; padding-top: 20px;width:480px;margin:0 auto;}
+.cart_step > .active{color:#ff712f;}
+.cart_step li{ list-style:none;width:160px;color:#d2d2d2;margin-bottom:5px;}
+
+.cart-thead{color:#444444;font-size:14px;height:40px;border-bottom: 1px solid #d2d2d2;}
+.cart-head-column {width: 122px; padding-left: 11px; float: left;}
+.cart-column {height: 82px; line-height: 100px; padding-top: 20px;padding-bottom: 20px; width: 122px; padding-left: 11px; float: left;border-bottom: solid 1px #d2d2d2;}
+.cart-column del{color:#D2D2D2;}
+.p-img{float: left;width: 80px;height:80px;  border:1px solid #eee; margin: 0 10px;background: #fff;padding:0;text-align: center; overflow: hidden;}
+.item-msg{color:#707070;font-size:12px;text-align: left;height:80px;line-height:80px;}
+
+/******* me ********/
+
+.circle{width:640px;background-color:#FF712F;height:1px;margin:0 auto;clear:both;position:relative;}
+.circle li{width:8px;height:8px;border:1px solid #FF712F;
+	position:absolute;background-color:#FFF;top:-5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;}
+.circle1{left:155px;}
+.circle2{left:315px;}
+.circle3{left:475px;}
+.circle>.active{background-color:#FF712F;}
+.payState{width:100%;}
+.payState:after{display:block;content:"";clear:both;}
+
+/***************/
+.agreenBox{
+	background-color:blue;
+	vertical-align:middle;
+	width:14px;
+	height:14px;
+	margin-top:-2px;
+	display:none;
+}
+.agreen{
+	display:inline-block;
+	background-color:rgb(23,143,242);
+	vertical-align:middle;
+	width:12px;
+	height:12px;
+	margin-top:-2px;
+	border-radius:2px;
+	color:#fff;
+	position:relative;
+	margin-right:2px;
+	border:1px solid rgb(23,143,242);
+
+}
+.xz-sc{
+
+}
+
+.uncheck .rightIcon{display:none;}
+.uncheck .agreen{
+	border:1px solid #888;
+	background-color:#fff;
+}
+.rightIcon,.rightIcon>b{
+	display:inline-block;
+}
+.rightIcon{
+	background-color:#fff;
+	position:relative;
+	width:8px;
+	height:5px;
+	transform:rotate(-45deg);
+	top:3px;
+	left:0px;
+}
+.rightIcon>b{
+	background-color:rgb(23,143,242);
+	position:absolute;
+	right:-1px;
+	top:-1px;
+	width:7px;
+	height:4px;
+}
+
+/*=====================================================鏀粯鏍稿==========================================================*/
+.areaTitle{  width: 960px;text-align: left;padding-left: 40px;font-size: 16px;height: 45px;line-height: 45px; border-bottom:1px solid #d2d2d2}
+.colName{text-align:right;color:#444444}
+.colValue{text-align:left;color:#707070}
+
+.payWaytitle{line-height: 40px;  height: 40px; border-style: solid;  font-size: 14px;}
+.payWaytitle li{float: left;position: relative;height: 36px;line-height: 40px;  font-size: 14px;}
+.payWaytitle li a{  display: inline-block; width:150px;}
+.payWaytitle li.current a {background: url(../img_new/ico_tab_white.png) no-repeat right top;color: #444444;  border: 1px solid #d8d8d8;border-bottom: 0px;}
+.payWaytitle li.other a {background: url(../img_new/ico_tab.png) no-repeat right top;color: #707070;}
+.orderMain{padding: 20px 8px;  text-align: left;  border: 1px solid #d8d8d8;  border-radius: 1px;}
+.payButton{width: 195px; height: 46px;border:solid 1px #d8d8d8;background-position: center; display: inline-block;  margin: 10px 10px;}
+.payButtonActive{ border: 1px solid #FF712F; border-radius:2px;
+	-webkit-box-shadow: 0 0 0 1px #ff712f;
+	-moz-box-shadow: 0 0 0 1px #ff712f;
+	box-shadow: 0 0 0 1px #ff712f;}
+
+
+
+
